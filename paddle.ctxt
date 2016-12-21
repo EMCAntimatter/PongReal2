@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=x1Paddle\ y1Paddle\ x2Paddle\ y2Paddle
+comment0.target=paddle(int,\ int,\ int,\ int)
+comment1.params=x1Paddle\ y1Paddle\ x2Paddle\ y2Paddle\ comp
+comment1.target=void\ paddleUpdate(int,\ int,\ int,\ int,\ java.awt.Graphics)
+numComments=2
