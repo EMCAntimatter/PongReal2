@@ -25,7 +25,14 @@ public class PongPane extends JPanel {
     int y1Paddle2 = 150;
     int y2Paddle2 = 250;
     
+    int[] score = new int[2];
+    score[0] = 0;
+    score[1] = 0;
 
+
+    Ball gameBall = new Ball();
+    paddle paddle1 = new paddle(x1Paddle1, y1Paddle1, x2Paddle1, y2Paddle1);
+    paddle paddle2 = new paddle(x1Paddle2, y1Paddle2, x2Paddle2, y2Paddle2);
     
     boolean running = true;
     
@@ -47,9 +54,7 @@ public class PongPane extends JPanel {
     @Override
     public void start() {
         
-        Ball gameBall = new Ball();
-        paddle paddle1 = new paddle(x1Paddle1, y1Paddle1, x2Paddle1, y2Paddle1);
-        paddle paddle2 = new paddle(x1Paddle2, y1Paddle2, x2Paddle2, y2Paddle2);
+        
         
         if (!running) {
             running = true;
@@ -61,12 +66,30 @@ public class PongPane extends JPanel {
        super.paintComponent(comp);
        wipe(comp);
        draw(comp);
-               
+       
+       boolean collision = Collision.collisionTest(gameBall, paddle1, paddle2); 
+        
+       if(collision == true){
+           gameBall.Vx = -1 * gameBall.Vx;
+       }
+       
+       else if(gameBall.xBall < 0){
+           score[0] += 1;
+           
+           }
+           
+       else if(gameBall.xBall > 500){
+         
+           score[1] += 1;
+           
+           }
+        
+        
        }
     
     
     public void draw(Graphics comp){
-        gameBall.ballUpdate(comp);
+        gameBall.ballUpdate(comp, score[]);
     
         comp.setColor(Color.blue);
         comp.drawLine(x1Paddle1, y1Paddle1, x2Paddle1, y2Paddle1);
@@ -84,6 +107,17 @@ public class PongPane extends JPanel {
         
         comp.setColor(Color.white);
         comp.drawLine(x1Paddle2, y1Paddle2, x2Paddle2, y2Paddle2);
+    }
+    public void reset(){
+        gameBall = null;
+        paddle1 = null;
+        paddle2 = null;
+        
+        System.gc()
+        
+        Ball gameBall = new Ball();
+        paddle paddle1 = new paddle(x1Paddle1, y1Paddle1, x2Paddle1, y2Paddle1);
+        paddle paddle2 = new paddle(x1Paddle2, y1Paddle2, x2Paddle2, y2Paddle2);
     }
 
 }
