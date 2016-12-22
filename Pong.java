@@ -11,26 +11,8 @@ import java.awt.event.*;
 public class Pong extends JFrame
 {
     PongPane pongPane;
-    int[] transfer = new int[4];
+ 
     
-    /*@Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                case KeyEvent.VK_W:{
-                    Paddle1Up();                    
-                    break;}
-                case KeyEvent.VK_S:{
-                    Paddle1Down();
-                    break;}
-                case KeyEvent.VK_UP:{
-                    Paddle2Up();
-                    break;}
-                case KeyEvent.VK_DOWN:{
-                    Paddle2Down();
-                    break;}
-                }
-            }
-    */
    
     public Pong(){
     super("Pong");
