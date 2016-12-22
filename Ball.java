@@ -19,13 +19,23 @@ public class Ball
     public Ball(){
        
     }
-    public void updateBall(Graphics comp){
+    public void updateBall(Graphics comp, int[] score){
         comp.setColor(Color.white);
         comp.fillOval(xBall, yBall, 30, 30);
         xBall += Vx;
         yBall += Vy;
-        if (xBall > 500 || xBall < 0){Vx = -1 * Vx;}
+        
+        if (xBall > 500 || xBall < 0){
+            
+            Vx = -1 * Vx;
+           
+            
+            }
         if (yBall > 500 || yBall < 0){Vy = -1 * Vy;}
+        
+        
+        
+        
         comp.setColor(Color.red);
         comp.fillOval(xBall, yBall, 30, 30);
     }
